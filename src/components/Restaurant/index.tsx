@@ -33,7 +33,10 @@ const Restaurante = ({
     <Titulo>
       <Nome>{title}</Nome>
       <Nota>
-        {grade} <img src={estrela} />
+        <Nome>{grade}</Nome>
+        <Nome>
+          <img src={estrela} />
+        </Nome>
       </Nota>
     </Titulo>
     <Descricao>{description}</Descricao>

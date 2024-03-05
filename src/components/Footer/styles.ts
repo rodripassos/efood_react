@@ -15,6 +15,7 @@ export const FooterContent = styled.footer`
     margin-bottom: 32px;
   }
 `
+
 export const Social = styled.ul`
   display: flex;
   justify-content: center;

@@ -20,12 +20,23 @@ export const HeaderContent = styled.div`
 `
 export const RestaurantCover = styled.div`
   width: 100%;
-  height: 280px;
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative;
+  color: ${cores.branca};
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: ${cores.preta};
+    content: '';
+    opacity: 0.5;
+  }
 
   img {
-    margin: auto;
     width: 100%;
   }
 `
@@ -34,4 +45,19 @@ export const Texto = styled.h1`
   color: ${cores.rosaEscuro};
   font-size: 18px;
   font-weight: 900;
+`
+
+export const Tipo = styled.h4`
+  position: absolute;
+  top: 25px;
+  left: 170px;
+  font-weight: 100;
+  font-size: 32px;
+`
+export const Titulo = styled.h2`
+  position: absolute;
+  bottom: 32px;
+  left: 170px;
+  font-weight: 900;
+  font-size: 32px;
 `

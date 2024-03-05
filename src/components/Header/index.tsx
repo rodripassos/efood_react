@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { HeaderContent, RestaurantCover, Texto } from './styles'
+import { HeaderContent, RestaurantCover, Texto, Tipo, Titulo } from './styles'
 
 import vetor from '../../assets/images/Vector.png'
 import logo from '../../assets/images/logo.png'
@@ -17,6 +17,8 @@ const Header = () => (
       </div>
     </HeaderContent>
     <RestaurantCover>
+      <Tipo>Italiana</Tipo>
+      <Titulo>La Dolce Vita Trattoria</Titulo>
       <img src={cover} alt="Cover do restaurante" />
     </RestaurantCover>
   </>
