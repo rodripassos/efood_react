@@ -38,6 +38,8 @@ export const RestaurantCover = styled.div`
 
   img {
     width: 100%;
+    height: 280px;
+    object-fit: cover;
   }
 `
 
@@ -50,14 +52,12 @@ export const Texto = styled.h1`
 export const Tipo = styled.h4`
   position: absolute;
   top: 25px;
-  left: 170px;
   font-weight: 100;
   font-size: 32px;
 `
 export const Titulo = styled.h2`
   position: absolute;
   bottom: 32px;
-  left: 170px;
   font-weight: 900;
   font-size: 32px;
 `

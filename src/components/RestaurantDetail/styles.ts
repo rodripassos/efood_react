@@ -24,3 +24,162 @@ export const Infos = styled.div`
   top: 16px;
   right: 16px;
 `
+
+export const Modal = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: none;
+  align-items: center;
+  justify=content: center;
+
+  &.visivel {
+    display: flex;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.73);
+  }
+`
+
+export const ModalContent = styled.div`
+  max-width: 1024px;
+  position: relative;
+  z-index: 1;
+  background-color: ${cores.rosaEscuro};
+  height: 344px;
+
+  header {
+    display: flex;
+    height: 24px;
+    justify-content: end;
+    padding-right: 8px;
+    padding-top: 8px;
+    img {
+      height: 16px;
+      weight: 16px;
+      cursor: pointer;
+    }
+  }
+
+  .infos {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    max-height: 100%;
+    color: ${cores.branca};
+    padding-left: 32px;
+    padding-right: 32px;
+    margin-top: 8px;
+    h4 {
+      font-size: 18px;
+      font-weight: 900;
+      margin-left: 24px;
+    }
+    p {
+      margin-top: 16px;
+      font-size: 14px;
+      line-height: 22px;
+      font-weight: 400;
+      margin-left: 24px;
+    }
+    img {
+      display: block;
+      width: 280px;
+      height: 280px;
+      object-fit: cover;
+    }
+    button {
+      margin-left: 24px;
+      margin-top: 16px;
+      border: none;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 4px 8px;
+      color: ${cores.rosaEscuro};
+      background-color: ${cores.rosaClaro};
+      cursor: pointer;
+    }
+  }
+`
+
+// export const Modal = styled.div`
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 344px;
+//   height: 100%;
+//   z-index: 1;
+//   display: none;
+//   align-items: center;
+//   justify=content: center;
+
+//   &.visivel {
+//     display: block;
+//   }
+
+//   .overlay {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     background-color: rgba(0, 0, 0, 0.73);
+//   }
+// `
+
+// export const ModalContent = styled.div`
+//   width: 100%;
+//   height: 344px;
+//   padding: 32px;
+//   position: relative;
+//   z-index: 1;
+//   background-color: ${cores.rosaEscuro};
+//   color: ${cores.branca};
+
+//   header {
+//     display: block;
+//     justify-content: space-between;
+//   }
+
+//   .infos {
+//     display: grid;
+//     grid-template-columns: 1fr 1fr;
+//   }
+
+//   div {
+//     width: 280px;
+//     height: 280px;
+
+//     img {
+//       width: 280px;
+//       height: 280px;
+//       max-width: 100%;
+//       height: 100%;
+//       position: relative;
+//       object-fit: cover;
+//     }
+
+//     h4 {
+//       font-size: 18px;
+//       font-weight: bold;
+//     }
+//   }
+
+//   > img {
+//     width: 100%;
+//   }
+
+//   img {
+//     display: block;
+//     max-width: 100%;
+//   }
+// `

@@ -1,59 +1,36 @@
-import Product from '../../models/Product'
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import { Restaurant } from '../Home'
 
-import marguerita from '../../assets/images/marguerita.png'
 import Header from '../../components/Header'
 import RestaurantDetail from '../../components/RestaurantDetail'
 
-const produtos: Product[] = [
-  {
-    id: 1,
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    title: 'Pizza Marguerita',
-    image: marguerita
-  },
-  {
-    id: 2,
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    title: 'Pizza Marguerita',
-    image: marguerita
-  },
-  {
-    id: 3,
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    title: 'Pizza Marguerita',
-    image: marguerita
-  },
-  {
-    id: 4,
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    title: 'Pizza Marguerita',
-    image: marguerita
-  },
-  {
-    id: 5,
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    title: 'Pizza Marguerita',
-    image: marguerita
-  },
-  {
-    id: 6,
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    title: 'Pizza Marguerita',
-    image: marguerita
-  }
-]
+const Detalhe = () => {
+  const { id } = useParams()
 
-const Detalhe = () => (
-  <>
-    <Header />
-    <RestaurantDetail produtos={produtos} />
-  </>
-)
+  const [restaurante, setRestaurante] = useState<Restaurant>()
+
+  useEffect(() => {
+    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
+      .then((res) => res.json())
+      .then((res) => setRestaurante(res))
+  }, [id])
+
+  if (!restaurante) {
+    return <h3>Carregando...</h3>
+  }
+
+  return (
+    <>
+      <Header
+        id={restaurante.id}
+        tipo={restaurante.tipo}
+        image={restaurante.capa}
+        title={restaurante.titulo}
+      />
+      <RestaurantDetail produtos={restaurante.cardapio} />
+    </>
+  )
+}
 
 export default Detalhe
