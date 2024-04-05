@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 import { TagContainer } from '../Tag/styles'
 
 export const Card = styled.div`
@@ -15,6 +15,10 @@ export const Card = styled.div`
     max-width: 472px;
     max-height: 217px;
     object-fit: cover;
+
+    @media (max-width: ${breakpoints.desktop}) {
+      max-width: 100%;
+    }
   }
 `
 

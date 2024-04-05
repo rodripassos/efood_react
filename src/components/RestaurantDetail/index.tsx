@@ -9,6 +9,9 @@ import {
 } from './styles'
 
 import fechar from '../../assets/images/close.png'
+import { open, add } from '../../store/reducers/cart'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootReducer } from '../../store'
 
 type Props = {
   produtos: Cardapio[]
@@ -23,7 +26,14 @@ interface ModalState {
   price: number
 }
 
-const formataPreco = (preco = 0) => {
+export type Produto = {
+  id: number
+  name: string
+  image: string
+  price: number
+}
+
+export const formataPreco = (preco = 0) => {
   return new Intl.NumberFormat('pt-BR', {
     style: 'currency',
     currency: 'BRL'
@@ -39,6 +49,27 @@ const RestaurantDetail = ({ produtos }: Props) => {
     portion: '',
     price: 0
   })
+
+  const [product, setProduct] = useState<Produto>({
+    id: 0,
+    name: '',
+    image: '',
+    price: 0
+  })
+
+  const fillProduto = (
+    id: number,
+    name: string,
+    image: string,
+    price: number
+  ) => {
+    setProduct({
+      id: id,
+      name: name,
+      image: image,
+      price: price
+    })
+  }
 
   const openModal = (
     name: string,
@@ -68,6 +99,14 @@ const RestaurantDetail = ({ produtos }: Props) => {
     })
   }
 
+  const dispatch = useDispatch()
+  const { items } = useSelector((state: RootReducer) => state.cart)
+
+  const addToCart = () => {
+    dispatch(add(product))
+    dispatch(open())
+  }
+
   return (
     <div className="container">
       <RestaurantsListStyle>
@@ -90,7 +129,7 @@ const RestaurantDetail = ({ produtos }: Props) => {
                 <h4>{modal.name}</h4>
                 <p>{modal.description}</p>
                 <p>Serve: {modal.portion}</p>
-                <button>
+                <button onClick={addToCart}>
                   Adicionar ao carrinho - {formataPreco(modal.price)}
                 </button>
               </div>
@@ -113,6 +152,12 @@ const RestaurantDetail = ({ produtos }: Props) => {
                     produto.foto,
                     produto.descricao,
                     produto.porcao,
+                    produto.preco
+                  )
+                  fillProduto(
+                    produto.id,
+                    produto.nome,
+                    produto.foto,
                     produto.preco
                   )
                 }}

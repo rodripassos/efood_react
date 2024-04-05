@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 
 export const RestaurantsList = styled.section`
   padding-top: 80px;
@@ -12,6 +12,17 @@ export const List = styled.ul`
   grid-template-columns: 1fr 1fr 1fr;
   gap: 32px;
   margin-top: 56px;
+
+  @media (max-width: ${breakpoints.desktop}) {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 24px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    grid-template-columns: 1fr;
+    margin-top: 8px;
+  }
 `
 
 export const Title = styled.h2`
@@ -57,6 +68,16 @@ export const ModalContent = styled.div`
   background-color: ${cores.rosaEscuro};
   height: 344px;
 
+  @media (max-width: ${breakpoints.desktop}) {
+    max-width: 80%;
+    //max-height: 280px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    max-width: 60%;
+    height: 520px;
+  }
+
   header {
     display: flex;
     height: 24px;
@@ -78,10 +99,20 @@ export const ModalContent = styled.div`
     padding-left: 32px;
     padding-right: 32px;
     margin-top: 8px;
+
+    @media (max-width: ${breakpoints.tablet}) {
+      display: block;
+    }
+
     h4 {
       font-size: 18px;
       font-weight: 900;
       margin-left: 24px;
+
+      @media (max-width: ${breakpoints.desktop}) {
+        font-size: 16px;
+        margin-left: 0;
+      }
     }
     p {
       margin-top: 16px;
@@ -89,12 +120,29 @@ export const ModalContent = styled.div`
       line-height: 22px;
       font-weight: 400;
       margin-left: 24px;
+
+      @media (max-width: ${breakpoints.desktop}) {
+        margin-top: 8px;
+        font-size: 14px;
+        line-height: 18px;
+        margin-left: 0;
+      }
     }
     img {
       display: block;
       width: 280px;
       height: 280px;
       object-fit: cover;
+
+      @media (max-width: ${breakpoints.desktop}) {
+        max-width: 220px;
+        max-height: 220px;
+      }
+
+      @media (max-width: ${breakpoints.tablet}) {
+        max-width: 180px;
+        max-height: 180px;
+      }
     }
     button {
       margin-left: 24px;
@@ -106,6 +154,10 @@ export const ModalContent = styled.div`
       color: ${cores.rosaEscuro};
       background-color: ${cores.rosaClaro};
       cursor: pointer;
+
+      @media (max-width: ${breakpoints.desktop}) {
+        margin-left: 0;
+      }
     }
   }
 `

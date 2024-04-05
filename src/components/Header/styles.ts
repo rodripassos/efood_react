@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 
 export const HeaderContent = styled.div`
   width: 100%;
@@ -12,6 +12,18 @@ export const HeaderContent = styled.div`
     justify-content: space-between;
     align-items: center;
     padding-top: 64px;
+
+    @media (max-width: ${breakpoints.tablet}) {
+      display: block;
+      align-items: center;
+      margin-left: auto;
+
+      img {
+        height: 40px;
+        margin-top: 8px;
+        margin-bottom: 8px;
+      }
+    }
   }
 
   img {
@@ -47,6 +59,18 @@ export const Texto = styled.h1`
   color: ${cores.rosaEscuro};
   font-size: 18px;
   font-weight: 900;
+`
+
+export const ButtonCart = styled.a`
+  color: ${cores.rosaEscuro};
+  font-size: 18px;
+  font-weight: 900;
+  cursor: pointer;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    display: block;
+    font-size: 16px;
+  }
 `
 
 export const Tipo = styled.h4`

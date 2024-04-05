@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 
 export const HeroContent = styled.div`
   width: 100%;
@@ -7,6 +7,10 @@ export const HeroContent = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   display: block;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    height: 284px;
+  }
 
   img {
     margin: auto;
@@ -21,4 +25,9 @@ export const Texto = styled.h1`
   font-size: 36px;
   font-weight: 900;
   text-align: center;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    font-size: 24px;
+    padding-top: 48px;
+  }
 `
