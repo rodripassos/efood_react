@@ -107,4 +107,5 @@ export const ButtonCheckOut = styled.button`
   height: 24px;
   font-size: 14px;
   font-weight: 700;
+  cursor: pointer;
 `

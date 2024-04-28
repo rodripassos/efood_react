@@ -10,8 +10,7 @@ import {
 
 import fechar from '../../assets/images/close.png'
 import { open, add } from '../../store/reducers/cart'
-import { useDispatch, useSelector } from 'react-redux'
-import { RootReducer } from '../../store'
+import { useDispatch } from 'react-redux'
 
 type Props = {
   produtos: Cardapio[]
@@ -26,12 +25,12 @@ interface ModalState {
   price: number
 }
 
-export type Produto = {
-  id: number
-  name: string
-  image: string
-  price: number
-}
+// export type Produto = {
+//   id: number
+//   name: string
+//   image: string
+//   price: number
+// }
 
 export const formataPreco = (preco = 0) => {
   return new Intl.NumberFormat('pt-BR', {
@@ -100,7 +99,6 @@ const RestaurantDetail = ({ produtos }: Props) => {
   }
 
   const dispatch = useDispatch()
-  const { items } = useSelector((state: RootReducer) => state.cart)
 
   const addToCart = () => {
     dispatch(add(product))

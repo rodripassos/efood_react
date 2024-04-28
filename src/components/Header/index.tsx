@@ -21,7 +21,7 @@ type Props = {
   title: string
 }
 
-const Header = ({ id, tipo, image, title }: Props) => {
+const Header = ({ tipo, image, title }: Props) => {
   const tipoCozinha = tipo[0].toUpperCase() + tipo.substring(1)
 
   const dispatch = useDispatch()

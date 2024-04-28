@@ -5,7 +5,8 @@ export const cores = {
   fundo: '#FFF8F2',
   rosaEscuro: '#E66767',
   rosaClaro: '#FFEBD9',
-  preta: '#000'
+  preta: '#000',
+  inputColor: '#4B4B4B'
 }
 
 export const breakpoints = {
